@@ -1,0 +1,3 @@
+The Vendetta Plugin Documentation Authors
+
+Seth W. Klein <sk@sethwklein.net>
