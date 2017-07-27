@@ -99,12 +99,14 @@ local function main()
 	local title
 	local slug
 
+	output:write("\t")
+
 	while state do
 		if state == got_document then
 			title = string.sub(line, #"### " + 1)
 			slug = toslug(title)
 
-			output:write(string.format("\tif slug == %q then\n", slug))
+			output:write(string.format("if slug == %q then\n", slug))
 			output:write(string.format("\t\tprint(%q)\n", title))
 
 			state = finding_code
