@@ -59,7 +59,7 @@ local function docs(data, args)
 ]]
 
 local example = [[if slug == "doc-id" then
-		print("That was an example. Instead of doc-id, use something from the list printed when you type:")
+		print("That was an example. Instead of doc-id, try something from the list printed when you type:")
 		print("/doc help")
 	else
 		print("Documentation available for:")
