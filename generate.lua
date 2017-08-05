@@ -1,6 +1,55 @@
 #!/usr/bin/env lua
 
 local preamble = [[
+local indent = ""
+
+local function header(text)
+	print(text..":")
+	indent = "\t"
+end
+
+local function is_number(v)
+	print(indent.."Number: "..tostring((type(v) == "number")))
+end
+
+local function is_string(v)
+	print(indent.."String: "..tostring((type(v) == "string")))
+end
+
+local function is_item_id(v)
+	local is = type(v) == "number" and GetInventoryItemName(v) ~= nil
+	print(indent.."Item ID (number): "..tostring(is))
+end
+
+-- item_classes duplicates data, but attempts at (presumably) security
+-- through obscurity prevent the global scope searches that would avoid
+-- the duplication.
+local item_classes = {
+	[0] = "CLASSTYPE_GENERIC",
+	[1] = "CLASSTYPE_SHIP",
+	[2] = "CLASSTYPE_ADDON",
+	[3] = "CLASSTYPE_FLAG",
+	[4] = "CLASSTYPE_STORAGE",
+	[5] = "CLASSTYPE_MISSION",
+}
+
+local function is_item_class(v)
+	local is = type(v) == "number" and item_classes[v] ~= nil
+	print(indent.."Item class (number): "..tostring(is))
+end
+
+local item_subtypes = {
+	[0] = "light weapon or ship",
+	[1] = "heavy weapon",
+	[3] = "engine",
+	[4] = "battery",
+	[10] = "trade goods",
+}
+
+local function is_item_subtype(v)
+	print(indent.."Item subtype (number): "..tostring((type(v) == "number")).." (probably)")
+end
+
 local function docs(data, args)
 	local slug
 	if args then
@@ -131,7 +180,7 @@ local function main()
 				output:write("\n")
 			end
 		elseif state == finished_document then
-			output:write(string.format("\telse"))
+			output:write(string.format("\t\tindent = \"\"\n\telse"))
 			docs[#docs+1] = slug
 			if line then
 				state = got_document
