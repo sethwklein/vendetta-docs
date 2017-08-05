@@ -3,10 +3,12 @@
 Vendetta Plugin Documentation is unofficial documentation for developing
 plugins for [Vendetta Online](https://vendetta-online.com/).
 
-In a somewhat literate programming style, this document is automatically
-transformed into a plugin for running and testing itself. To try it,
-install this folder like any other plugin (see below) and type `/docs help`
-in Vendetta. To make changes, see [Contributing](#contributing).
+Most of the documentation is in sample code form and there's a tool
+to convert it to a Vendetta plugin for testing. This helps ensure it's
+current and correct.
+
+To try the plugin, install this folder like any other plugin (see below)
+and type `/docs help` in Vendetta. To make changes, see [Contributing](#contributing).
 
 ## Installing
 
