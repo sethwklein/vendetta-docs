@@ -115,7 +115,11 @@ print("\tSample: "..string.format("%q", icon_path))
 header("Name")
 is_string(name)
 print("\tSample: "..string.format("%q", name))
+```
 
+See [Item Name](#item-name) to get this separately.
+
+```
 header("Quantity")
 is_number(quantity)
 print("\tSample: "..tostring(quantity))
@@ -152,3 +156,16 @@ is_item_subtype(item_subtype)
 print("\tSample: "..tostring(item_subtype)..
     " ("..item_subtypes[item_subtype]..")")
 ```
+
+### Item Name
+
+See [Item Information](#item-information) to get a ton of other information
+as well.
+
+```
+local item_id, _ = PlayerInventoryPairs()()
+local name = GetInventoryItemName(item_id)
+is_string(name)
+print("\tSample: "..string.format("%q", name))
+```
+

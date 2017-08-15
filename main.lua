@@ -121,6 +121,13 @@ local function docs(data, args)
 		print("\tSample: "..tostring(item_subtype).." ("..item_subtypes[item_subtype]..")")
 		-- document possible values separately
 		indent = ""
+	elseif slug == "item-name" then
+		print("Item Name")
+		local item_id, _ = PlayerInventoryPairs()()
+		local name = GetInventoryItemName(item_id)
+		is_string(name)
+		print("\tSample: "..string.format("%q", name))
+		indent = ""
 	elseif slug == "doc-id" then
 		print("That was an example. Instead of doc-id, try something from the list printed when you type:")
 		print("/doc help")
@@ -129,6 +136,7 @@ local function docs(data, args)
 		print(string.format("* %s", "sector-id"))
 		print(string.format("* %s", "inventory"))
 		print(string.format("* %s", "item-information"))
+		print(string.format("* %s", "item-name"))
 
 		print("")
 		print("To see the documentation for doc-id (for example), type:")
