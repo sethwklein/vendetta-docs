@@ -175,8 +175,10 @@ local function main()
 			elseif line == "```" then
 				state = finding_code
 			else
-				output:write("\t\t")
-				output:write(line)
+				if #line ~= 0 then
+					output:write("\t\t")
+					output:write(line)
+				end
 				output:write("\n")
 			end
 		elseif state == finished_document then

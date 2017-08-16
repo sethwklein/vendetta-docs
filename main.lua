@@ -78,11 +78,11 @@ local function docs(data, args)
 		local icon_path, name, quantity, metric_tons, short_description,
 		    long_description, strange_description, containing_item_id, item_class,
 		    item_subtype = GetInventoryItemInfo(item_id)
-		
+
 		header("Icon path")
 		is_string(icon_path)
 		print("\tSample: "..string.format("%q", icon_path))
-		
+
 		header("Name")
 		is_string(name)
 		print("\tSample: "..string.format("%q", name))
@@ -90,7 +90,7 @@ local function docs(data, args)
 		header("Quantity")
 		is_number(quantity)
 		print("\tSample: "..tostring(quantity))
-		
+
 		header("Metric tons")
 		is_number(metric_tons)
 		print("\tSample: "..tostring(metric_tons).." ("..tostring(math.round(metric_tons*1000)).."kg)")
@@ -98,15 +98,15 @@ local function docs(data, args)
 		header("Short description")
 		is_string(short_description)
 		print("\tSample: "..string.format("%q", short_description))
-		
+
 		header("Long description")
 		is_string(long_description)
 		print("\tSample: "..string.format("%q", long_description))
-		
+
 		header("Strange description")
 		is_string(strange_description)
 		print("\tSample: "..string.format("%q", strange_description))
-		
+
 		header("Containing item ID")
 		is_item_id(containing_item_id)
 		print("\tSample: "..tostring(containing_item_id).." ("..tostring(GetInventoryItemName(containing_item_id))..")")
