@@ -86,15 +86,15 @@ local function docs(data, args)
 		header("Name")
 		is_string(name)
 		print("\tSample: "..string.format("%q", name))
-		
 		header("Quantity")
 		is_number(quantity)
 		print("\tSample: "..tostring(quantity))
 
 		header("Metric tons")
 		is_number(metric_tons)
-		print("\tSample: "..tostring(metric_tons).." ("..tostring(math.round(metric_tons*1000)).."kg)")
-		
+		print("\tSample: "..tostring(metric_tons)..
+		    " ("..tostring(math.round(metric_tons*1000)).."kg)")
+
 		header("Short description")
 		is_string(short_description)
 		print("\tSample: "..string.format("%q", short_description))
@@ -109,17 +109,18 @@ local function docs(data, args)
 
 		header("Containing item ID")
 		is_item_id(containing_item_id)
-		print("\tSample: "..tostring(containing_item_id).." ("..tostring(GetInventoryItemName(containing_item_id))..")")
-		
+		print("\tSample: "..tostring(containing_item_id)..
+		    " ("..tostring(GetInventoryItemName(containing_item_id))..")")
+
 		header("Item class")
 		is_item_class(item_class)
-		print("\tSample: "..tostring(item_class).." ("..item_classes[item_class]..")")
-		-- document possible values separately
-		
+		print("\tSample: "..tostring(item_class)..
+		    " ("..item_classes[item_class]..")")
+
 		header("Item subtype")
 		is_item_subtype(item_subtype)
-		print("\tSample: "..tostring(item_subtype).." ("..item_subtypes[item_subtype]..")")
-		-- document possible values separately
+		print("\tSample: "..tostring(item_subtype)..
+		    " ("..item_subtypes[item_subtype]..")")
 		indent = ""
 	elseif slug == "item-name" then
 		print("Item Name")
